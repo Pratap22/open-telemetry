@@ -1,13 +1,14 @@
 version: "2"
 services:
 
-  # node-app:
-  #   build: ./node-app
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     PORT: 8080
-  
+  rest-app:
+    build: ./rest-app
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+    depends_on:
+      - otel-collector
       
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.61.0
